@@ -1,6 +1,6 @@
 import 'phaser';
 import { MovementActor } from './Actor.js';
-import { TestLaserPulseCannon } from './Actor.js';
+import * as Weapons from './Weapons.js';
 
 function CalcPointWithRotation(origin, point, rotation) {
   let c = Math.cos(rotation);
@@ -28,7 +28,7 @@ export class Ship extends MovementActor {
 
   update(time, delta) {
     super.update(time, delta);
-    console.log('ship update');
+    //console.log('ship update');
   }
 
   FireWeapons(time, delta) {
@@ -87,6 +87,6 @@ export class DevShip extends Ship {
     this.hardpoints.set(1, { offset: { x: 0, y: -30 }, hardpoint: null });
     this.hardpoints.set(2, { offset: { x: 0, y: 30 }, hardpoint: null });
 
-    this.ChangeHardpoint(1, new TestLaserPulseCannon(scene, this));
+    this.ChangeHardpoint(1, new Weapons.TestLaserPulseCannon(scene, this));
   }
 }
